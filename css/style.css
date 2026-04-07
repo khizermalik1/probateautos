@@ -1,0 +1,604 @@
+/* ------------------------------
+   ROOT + GLOBAL
+--------------------------------*/
+:root {
+    --navy: #0A1A2F;
+    --gold: #E8B400;
+    --teal: #2DB8A3;
+    --bg: #F5F5F5;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: #222;
+}
+
+.container {
+    width: min(1100px, 100% - 32px);
+    margin: 0 auto;
+}
+/* ------------------------------
+   NAVIGATION (COLLAPSIBLE)
+--------------------------------*/
+.nav {
+    background: var(--navy);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    width: 100%;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* DESKTOP MENU */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    transition: 0.2s;
+}
+
+.nav-menu a:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* BURGER BUTTON */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* ------------------------------
+   MOBILE NAV
+--------------------------------*/
+@media (max-width: 768px) {
+
+    .nav-inner {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    /* Show burger */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Hide menu by default */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 12px;
+        gap: 8px;
+    }
+
+    /* When JS toggles .show */
+    .nav-menu.show {
+        display: flex;
+    }
+
+    /* Make each button full-width so they NEVER overlap */
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 1rem;
+        background: rgba(255,255,255,0.1);
+    }
+
+    .nav-menu a:hover {
+        background: var(--gold);
+        color: var(--navy);
+    }
+}
+
+
+/* ------------------------------
+   MOBILE NAV
+--------------------------------*/
+@media (max-width: 768px) {
+
+    .nav-inner {
+        flex-wrap: wrap;
+    }
+
+    /* Show burger */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Hide menu by default */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    /* When opened */
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu a {
+        padding: 10px 14px;
+        font-size: 1rem;
+        background: rgba(255,255,255,0.1);
+    }
+
+    .nav-menu a:hover {
+        background: var(--gold);
+        color: var(--navy);
+    }
+}
+
+/* ------------------------------
+   HERO SECTION
+--------------------------------*/
+.hero {
+    background: url("https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg") center/cover no-repeat;
+    position: relative;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,26,47,0.9), rgba(10,26,47,0.7));
+}
+
+.hero-inner {
+    position: relative;
+    padding: 70px 0 60px;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.6rem;
+}
+
+/* HERO STEPS */
+.hero-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-step {
+    background: rgba(255,255,255,0.96);
+    color: #222;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.hero-step-icon {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--gold);
+}
+
+/* NUMBER PLATE FORM */
+.numberplate-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* ------------------------------
+   SECTIONS
+--------------------------------*/
+.section {
+    padding: 60px 0;
+}
+
+.section:nth-of-type(odd) {
+    background: #ffffff;
+}
+
+.section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* ------------------------------
+   ABOUT GRID
+--------------------------------*/
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.about-item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ------------------------------
+   PROCESS LIST
+--------------------------------*/
+.process-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.process-list li {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ------------------------------
+   CONDITIONS LIST
+--------------------------------*/
+.conditions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.conditions-list li {
+    background: #fff;
+    border-radius: 999px;
+    padding: 10px 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    font-size: 0.95rem;
+}
+
+/* ------------------------------
+   TESTIMONIAL SLIDER
+--------------------------------*/
+.section-testimonials {
+    background: #eef7f4;
+}
+
+.testimonial-slider {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+}
+
+.testimonial-track {
+    display: flex;
+    gap: 18px;
+    animation: slideLeft 45s linear infinite;
+}
+
+.testimonial-card {
+    min-width: 300px;
+    max-width: 300px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    flex-shrink: 0;
+}
+
+.testimonial-card p {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.testimonial-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+/* SLIDER ANIMATION */
+@keyframes slideLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+.footer {
+    background: var(--navy);
+    color: #ddd;
+    padding: 20px 0;
+    font-size: 0.85rem;
+}
+
+.footer-inner {
+    text-align: center;
+}
+
+/* ------------------------------
+   RESPONSIVE
+--------------------------------*/
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .testimonial-card {
+        min-width: 260px;
+        max-width: 260px;
+    }
+
+    .nav-inner {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-menu {
+        justify-content: flex-start;
+    }
+
+    .numberplate-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ------------------------------
+   VALUATION FORM — MODERN UPGRADE
+--------------------------------*/
+.valuation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.valuation-form label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.valuation-form input,
+.valuation-form select,
+.valuation-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #dcdcdc;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+.valuation-form input:focus,
+.valuation-form select:focus,
+.valuation-form textarea:focus {
+  border-color: var(--gold);
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(232,180,0,0.25);
+}
+
+.valuation-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Match the number plate input style */
+.numberplate-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  padding: 1rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #fff8d6;
+}
+
+/* Submit button upgrade */
+.numberplate-btn {
+  padding: 1rem 1.4rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.numberplate-btn:hover {
+  background: #f1c735;
+}
+
+/* Thank-you message upgrade */
+.form-status {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  background: #e8ffe8;
+  color: #0a7c0a;
+  border: 2px solid #0a7c0a;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.form-status.show {
+  display: block;
+}
+
+
+/* ------------------------------
+   VALUATION HERO WITH TILES
+--------------------------------*/
+.valuation-hero {
+  background: url("https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg") center/cover no-repeat;
+  padding: 3rem 0 4rem;
+  position: relative;
+}
+
+.valuation-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,26,47,0.75);
+}
+
+.valuation-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating panel */
+.hero-tile-panel {
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(6px);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  max-width: 900px;
+  margin: 0 auto;
+  color: #222;
+}
+
+.hero-title {
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+
+.hero-subtitle {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.tile-heading {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* Tile grid */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+/* Base tile */
+.tile {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.tile i {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.tile h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tile p {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* HOW IT WORKS icons = gold */
+.tile-grid:first-of-type .tile i {
+  color: var(--gold);
+}
+
+/* WHY FAMILIES CHOOSE US icons = green */
+.tile-grid:last-of-type .tile i {
+  color: var(--teal);
+}
+
+/* Mobile tweak for tiles panel */
+@media (max-width: 768px) {
+  .hero-tile-panel {
+    padding: 1.5rem;
+  }
+}
+
+/* HONEYPOT */
+.hp-field {
+  display: none !important;
+}
