@@ -25,151 +25,120 @@ body {
     margin: 0 auto;
 }
 /* ------------------------------
-   NAVIGATION (COLLAPSIBLE)
+   NAVIGATION (RIGHT‑SIDE FIXED)
 --------------------------------*/
 .nav {
-    background: var(--navy);
-    color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  background: var(--navy);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 900;
+  padding: 10px 20px;
 }
-
+ 
 .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 0;
-    width: 100%;
-}
-
-.nav-logo {
-    font-weight: 700;
-    font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  white-space: nowrap;      /* stop buttons wrapping */
 }
 
 /* DESKTOP MENU */
 .nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu a {
-    color: #f5f5f5;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    transition: 0.2s;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  transition: 0.2s;
 }
 
 .nav-menu a:hover {
-    background: var(--gold);
-    color: var(--navy);
+  background: var(--gold);
+  color: var(--navy);
 }
 
-/* BURGER BUTTON */
+/* BURGER */
 .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ------------------------------
+   MOBILE NAV
+--------------------------------*/
+@media (max-width: 768px) {
+
+  .nav {
+    padding: 10px 12px;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+    white-space: normal;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
     display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.6rem;
-    cursor: pointer;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.1);
+  }
 }
 
-/* ------------------------------
-   MOBILE NAV
---------------------------------*/
-@media (max-width: 768px) {
+/* FLOATING LOGO — ABSOLUTE TOP LAYER */
+.floating-logo {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999999999 !important; /* higher than ANYTHING */
+  pointer-events: none !important;
+}
 
-    .nav-inner {
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-
-    /* Show burger */
-    .nav-toggle {
-        display: block;
-    }
-
-    /* Hide menu by default */
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 12px;
-        gap: 8px;
-    }
-
-    /* When JS toggles .show */
-    .nav-menu.show {
-        display: flex;
-    }
-
-    /* Make each button full-width so they NEVER overlap */
-    .nav-menu li {
-        width: 100%;
-    }
-
-    .nav-menu a {
-        display: block;
-        width: 100%;
-        padding: 12px 14px;
-        font-size: 1rem;
-        background: rgba(255,255,255,0.1);
-    }
-
-    .nav-menu a:hover {
-        background: var(--gold);
-        color: var(--navy);
-    }
+.floating-logo img {
+  height: 200px !important;  /* adjust size */
+  width: auto !important;
+  display: block !important;
 }
 
 
-/* ------------------------------
-   MOBILE NAV
---------------------------------*/
-@media (max-width: 768px) {
-
-    .nav-inner {
-        flex-wrap: wrap;
-    }
-
-    /* Show burger */
-    .nav-toggle {
-        display: block;
-    }
-
-    /* Hide menu by default */
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-        gap: 10px;
-    }
-
-    /* When opened */
-    .nav-menu.show {
-        display: flex;
-    }
-
-    .nav-menu a {
-        padding: 10px 14px;
-        font-size: 1rem;
-        background: rgba(255,255,255,0.1);
-    }
-
-    .nav-menu a:hover {
-        background: var(--gold);
-        color: var(--navy);
-    }
-}
 
 /* ------------------------------
    HERO SECTION
