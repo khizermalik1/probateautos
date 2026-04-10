@@ -24,86 +24,106 @@ body {
     width: min(1100px, 100% - 32px);
     margin: 0 auto;
 }
-/* ------------------------------
-   NAVIGATION (RIGHT‑SIDE FIXED)
---------------------------------*/
+/* NAV HEADER — navy background, nav buttons centered horizontally at the top (no logo) */
 .nav {
-  background: var(--navy);
-  color: #fff;
+  background: var(--navy);      /* match footer */
+  color: var(--white);
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   z-index: 900;
-  padding: 10px 20px;
-}
- 
-.nav-inner {
+  height: 56px;                 /* header height */
+  padding: 0 20px;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  white-space: nowrap;      /* stop buttons wrapping */
+  align-items: flex-start;      /* align children to the top edge */
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
 }
 
-/* DESKTOP MENU */
-.nav-menu {
-  list-style: none;
+/* full-width container */
+.nav-inner {
+  width: 100%;
+  position: relative;           /* allows absolute centering of .nav-menu */
   display: flex;
-  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;      /* default center alignment for content */
+}
+
+/* center the nav menu horizontally at the top (flush to top) */
+.nav-menu {
+  position: absolute;
+  left: 50%;
+  top: 8px;                     /* small offset from the very top */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
   margin: 0;
   padding: 0;
+  list-style: none;
+  align-items: center;
+  z-index: 905;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  opacity: 1;
 }
 
+/* compact nav buttons */
 .nav-menu a {
-  color: #f5f5f5;
+  display: inline-block;
+  padding: 6px 10px;            /* smaller buttons */
+  border-radius: 8px;
+  background: var(--gold);      /* gold buttons */
+  color: var(--navy);           /* navy text on gold */
+  font-weight: 700;
+  font-size: 0.88rem;
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  transition: 0.2s;
+  transition: transform 0.12s ease, background 0.12s ease;
 }
 
-.nav-menu a:hover {
-  background: var(--gold);
-  color: var(--navy);
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background: #f1c735;
+  transform: translateY(-1px);
+  outline: none;
 }
 
-/* BURGER */
+/* hamburger / right-side controls (top-right) */
 .nav-toggle {
+  position: absolute;
+  right: 16px;
+  top: 8px;
   display: none;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--gold);
   font-size: 1.6rem;
   cursor: pointer;
+  z-index: 920;
 }
 
-/* ------------------------------
-   MOBILE NAV
---------------------------------*/
+/* MOBILE: stacked full-width menu (no absolute centering) */
 @media (max-width: 768px) {
 
   .nav {
-    padding: 10px 12px;
+    height: auto;
+    padding: 8px 12px;
   }
 
   .nav-inner {
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 8px;
-    white-space: normal;
-  }
-
-  .nav-toggle {
-    display: block;
   }
 
   .nav-menu {
-    display: none;
-    flex-direction: column;
+    position: static;
+    transform: none;
+    display: none;               /* toggled with .show */
     width: 100%;
+    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
+    background: var(--navy);     /* keep menu background consistent on mobile */
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
   }
 
   .nav-menu.show {
@@ -119,25 +139,30 @@ body {
     width: 100%;
     padding: 12px 14px;
     font-size: 1rem;
-    background: rgba(255,255,255,0.1);
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .nav-toggle {
+    display: block;
   }
 }
 
-/* FLOATING LOGO — ABSOLUTE TOP LAYER */
-.floating-logo {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: 999999999 !important; /* higher than ANYTHING */
-  pointer-events: none !important;
+/* ensure page content sits below fixed header */
+main, .hero, .page-content {
+  padding-top: 72px; /* adjust if header height changes */
 }
 
-.floating-logo img {
-  height: 200px !important;  /* adjust size */
-  width: auto !important;
-  display: block !important;
+/* Accessibility helpers */
+.nav-toggle:focus {
+  outline: 3px solid rgba(232,180,0,0.25);
+  outline-offset: 2px;
 }
 
+.nav-menu a:focus {
+  box-shadow: 0 0 0 3px rgba(232,180,0,0.18);
+  border-radius: 8px;
+}
 
 
 /* ------------------------------
@@ -164,7 +189,9 @@ body {
 .hero-title {
     font-size: 2rem;
     margin-bottom: 0.4rem;
+      color: #fff;
 }
+
 
 .hero-subtitle {
     font-size: 1.1rem;
@@ -493,10 +520,6 @@ body {
   color: #222;
 }
 
-.hero-title {
-  color: var(--navy);
-  margin-bottom: 0.4rem;
-}
 
 .hero-subtitle {
   color: #333;
@@ -571,3 +594,85 @@ body {
 .hp-field {
   display: none !important;
 }
+
+
+/*/* ===== FAQ page styles (add to css/style.css) ===== */
+
+/* Hero */
+.faq-hero {
+  background: var(--navy);
+  color: #fff;
+  padding: 4.25rem 0;
+  text-align: center;
+}
+.faq-hero .container { position: relative; z-index: 2; }
+.faq-hero .hero-title { margin: 0 0 0.25rem; font-size: 1.9rem; color: #fff; }
+.faq-hero .hero-subtitle { margin: 0; color: rgba(255,255,255,0.92); }
+
+/* FAQ section */
+.faq-section { padding: 48px 0; }
+.faq-list { max-width: 980px; margin: 0 auto; display: grid; gap: 12px; }
+
+/* Details/summary styling */
+details {
+  background: transparent;
+  border-radius: 10px;
+}
+details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  font-weight: 700;
+  color: var(--navy);
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+details summary:hover { transform: translateY(-2px); }
+details summary::-webkit-details-marker { display: none; }
+
+/* chevron icon */
+details summary .chev { margin-left: auto; color: var(--gold); font-size: 1.05rem; transition: transform 0.18s ease; }
+
+/* body content */
+details .faq-body {
+  padding: 12px 16px 18px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  color: #222;
+  line-height: 1.6;
+  border-top: 1px solid rgba(10,26,47,0.03);
+}
+
+/* rotate chevron when open */
+details[open] summary .chev { transform: rotate(180deg); }
+
+/* subtle open state */
+details[open] summary { background: rgba(232,180,0,0.06); }
+
+/* contact block */
+.faq-contact { text-align: center; margin-top: 18px; color: #222; }
+.faq-contact a { color: var(--navy); font-weight:700; text-decoration:none; }
+.faq-contact .cta {
+  display: inline-block;
+  margin-top: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .faq-hero { padding: 1.5rem 0; }
+  .faq-hero .hero-title { font-size: 1.6rem; }
+  details summary { padding: 12px; font-size: 0.98rem; }
+  details .faq-body { padding: 10px 12px 14px; }
+}
+
