@@ -10,30 +10,32 @@
   </head>
 
   <body>
+
     <!-- NAVIGATION -->
-            <!-- Logo -->
     <a href="index.html" class="nav-logo">
       <img src="assets/images/Hadleys Logo Navbar 2.png" alt="Hadleys Probate Autos Logo" class="logo-img">
     </a>
-<nav class="nav">
-  <div class="container nav-inner">
 
-       <button class="nav-toggle" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <nav class="nav">
+      <div class="container nav-inner">
 
-    <ul class="nav-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="process.html">Our Process</a></li>
-      <li><a href="faqs.html">FAQs</a></li>
-      <li><a href="valuation.html">Free Valuation</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-  </div>
-</nav>
- <!-- HERO -->
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="valuation.html" aria-current="page">Free Valuation</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- HERO -->
     <header class="page-hero">
       <div class="container">
         <h1 class="hero-title">Hadleys Probate Autos - Free Valuation</h1>
@@ -41,129 +43,76 @@
       </div>
     </header>
 
+    <main>
 
+      <!-- FORM SECTION -->
+      <section class="section">
+        <div class="container">
 
-    <!-- FORM SECTION -->
-    <section class="section">
-      <div class="container">
+          <form id="valuationForm" class="valuation-form">
+            <p><strong>Fields marked with an * are required</strong></p>
 
-        <form id="valuationForm" class="valuation-form">
-          <p><strong>Fields marked with an * are required</strong></p>
+            <label>Are you the executor of the deceased? *</label>
+            <select name="executor" required>
+              <option value="">Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
 
-          <!-- EXECUTOR -->
-          <label>Are you the executor of the deceased? *</label>
-          <select name="executor" required>
-            <option value="">Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+            <label for="reg-input">The Vehicle Registration Number *</label>
+            <input id="reg-input" type="text" name="reg" class="numberplate-input" placeholder="ENTER REGISTRATION" required />
 
-          <!-- REG -->
-          <label for="reg-input">The Vehicle Registration Number *</label>
-          <input
-            id="reg-input"
-            type="text"
-            name="reg"
-            class="numberplate-input"
-            placeholder="ENTER REGISTRATION"
-            required
-          />
+            <label for="mileage">Mileage of the vehicle (if known)</label>
+            <input type="text" id="mileage" name="mileage" placeholder="Mileage" />
 
-          <!-- MILEAGE -->
-          <label for="mileage">Mileage of the vehicle (if known)</label>
-          <input
-            type="text"
-            id="mileage"
-            name="mileage"
-            placeholder="Mileage"
-          />
+            <label for="location">Approximate Location? (Nearest Town) *</label>
+            <input type="text" id="location" name="location" placeholder="Nearest Town" required />
 
-          <!-- LOCATION -->
-          <label for="location">Approximate Location? (Nearest Town) *</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            placeholder="Nearest Town"
-            required
-          />
+            <label>Does the vehicle run/start? *</label>
+            <select name="runs" required>
+              <option value="">Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not Sure">Not Sure</option>
+            </select>
 
-          <!-- RUNNING -->
-          <label>Does the vehicle run/start? *</label>
-          <select name="runs" required>
-            <option value="">Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Not Sure">Not Sure</option>
-          </select>
+            <label>Do you have a V5 Registration Document? *</label>
+            <select name="v5" required>
+              <option value="">Select an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not Sure">Not Sure</option>
+            </select>
 
-          <!-- V5 -->
-          <label>Do you have a V5 Registration Document? *</label>
-          <select name="v5" required>
-            <option value="">Select an option</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Not Sure">Not Sure</option>
-          </select>
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required />
 
-          <!-- NAME -->
-          <label for="name">Your Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Full Name"
-            required
-          />
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email" />
 
-          <!-- EMAIL -->
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-          />
+            <label for="phone">Best Contact Telephone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
 
-          <!-- PHONE -->
-          <label for="phone">Best Contact Telephone Number *</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Phone Number"
-            required
-          />
+            <label for="message">Additional Details (optional)</label>
+            <textarea id="message" name="message" placeholder="Tell us anything helpful about the vehicle"></textarea>
 
-          <!-- MESSAGE -->
-          <label for="message">Additional Details (optional)</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell us anything helpful about the vehicle"
-          ></textarea>
+            <input type="text" name="website" class="hp-field" />
 
-          <!-- HONEYPOT -->
-          <input type="text" name="website" class="hp-field" />
+            <button type="submit" class="numberplate-btn">Submit Valuation Request</button>
 
-          <!-- SUBMIT -->
-          <button type="submit" class="numberplate-btn">Submit Valuation Request</button>
-
-          <p id="formStatus" class="form-status"></p>
-        </form>
-
-      </div>
-    </section>
-
-          <!-- Footer contact CTA -->
-          <div class="faq-contact" style="text-align:center;margin-top:20px;">
-            <p>Still need help? Call or email us and we’ll arrange a free consultation.</p>
-            <p><a href="mailto:info@probateautos.co.uk">info@probateautos.co.uk</a> • <a href="tel:07802456321">07xxxxxxxxxx</a></p>
-            <p><a class="cta" href="valuation.html" style="background:var(--gold);color:var(--navy);padding:8px 12px;border-radius:8px;text-decoration:none;">Click here to get your FREE Valuation</a></p>
-          </div>
+            <p id="formStatus" class="form-status"></p>
+          </form>
 
         </div>
       </section>
+
+      <!-- CTA -->
+      <div class="faq-contact" style="text-align:center;margin-top:20px;">
+        <p>Still need help? Call or email us and we’ll arrange a free consultation.</p>
+        <p><a href="mailto:info@probateautos.co.uk">info@probateautos.co.uk</a> • <a href="tel:07802456321">07xxxxxxxxxx</a></p>
+        <p><a class="cta" href="valuation.html" style="background:var(--gold);color:var(--navy);padding:8px 12px;border-radius:8px;text-decoration:none;">Click here to get your FREE Valuation</a></p>
+      </div>
+
     </main>
 
     <footer class="footer">
@@ -172,17 +121,12 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init("TX4IAB17hqyiW7dGD");
+    </script>
+
     <script src="js/main.js"></script>
-  </body>
-</html>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("TX4IAB17hqyiW7dGD");
-</script>
-
-<script src="js/main.js"></script>
-
-  
   </body>
 </html>
