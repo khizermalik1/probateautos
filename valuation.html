@@ -18,9 +18,7 @@
 <nav class="nav">
   <div class="container nav-inner">
 
-    <div class="nav-logo">Hadleys Probate Autos</div>
-
-    <button class="nav-toggle" aria-label="Toggle navigation">
+       <button class="nav-toggle" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
 
@@ -35,45 +33,14 @@
 
   </div>
 </nav>
-
-  <header class="hero valuation-hero">
-  <div class="container">
-
-    <!-- FLOATING TILE PANEL -->
-    <div class="hero-tile-panel">
-
-   
-    
-
-
-      <!-- WHY FAMILIES CHOOSE US -->
-      <h3 class="tile-heading">Why Families Choose Us</h3>
-      <div class="tile-grid">
-        <div class="tile">
-          <i class="fa-solid fa-clock"></i>
-          <p>Fast same‑day response</p>
-        </div>
-
-        <div class="tile">
-          <i class="fa-solid fa-scale-balanced"></i>
-          <p>Probate vehicle specialists</p>
-        </div>
-
-        <div class="tile">
-          <i class="fa-solid fa-handshake"></i>
-          <p>Compassionate, professional service</p>
-        </div>
-
-        <div class="tile">
-          <i class="fa-solid fa-sterling-sign"></i>
-          <p>Free, no‑obligation valuation</p>
-        </div>
+ <!-- HERO -->
+    <header class="page-hero">
+      <div class="container">
+        <h1 class="hero-title">Hadleys Probate Autos - Free Valuation</h1>
+        <p class="hero-subtitle">A specialist will contact you shortly after you submit the form.</p>
       </div>
+    </header>
 
-    </div>
-
-  </div>
-</header>
 
 
     <!-- FORM SECTION -->
@@ -81,7 +48,6 @@
       <div class="container">
 
         <form id="valuationForm" class="valuation-form">
-  <p><strong>A specialist will contact you shortly after you submit the form.</strong></p>
           <p><strong>Fields marked with an * are required</strong></p>
 
           <!-- EXECUTOR -->
@@ -189,12 +155,27 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+          <!-- Footer contact CTA -->
+          <div class="faq-contact" style="text-align:center;margin-top:20px;">
+            <p>Still need help? Call or email us and we’ll arrange a free consultation.</p>
+            <p><a href="mailto:info@probateautos.co.uk">info@probateautos.co.uk</a> • <a href="tel:07802456321">07xxxxxxxxxx</a></p>
+            <p><a class="cta" href="valuation.html" style="background:var(--gold);color:var(--navy);padding:8px 12px;border-radius:8px;text-decoration:none;">Click here to get your FREE Valuation</a></p>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
     <footer class="footer">
       <div class="container footer-inner">
-        <p>&copy; Hadleys Probate Autos. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Hadleys Probate Autos. All rights reserved.</p>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   emailjs.init("TX4IAB17hqyiW7dGD");

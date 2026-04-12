@@ -45,15 +45,28 @@
 
   </div>
 </nav>
-
-
+    </main>
     <!-- HERO -->
-    <header id="hero" class="hero">
+   <header id="hero" class="page-hero">
+
       <div class="container hero-inner">
         <h1 class="hero-title">
           Sell Your Probate Vehicle Quickly & Safely
 
         </h1>
+  
+        <!-- NUMBER PLATE -->
+        <form action="valuation.html" method="GET" class="numberplate-form">
+          <input
+            type="text"
+            name="reg"
+            class="numberplate-input"
+            placeholder="ENTER REGISTRATION"
+          />
+          <button type="submit" class="numberplate-btn">Get Your FREE Valuation</button>
+        </form>
+      </div>
+    </header>
       
         <!-- 3 STEP PROCESS -->
         <div class="hero-steps">
@@ -89,18 +102,7 @@
           </article>
         </div>
 
-        <!-- NUMBER PLATE -->
-        <form action="valuation.html" method="GET" class="numberplate-form">
-          <input
-            type="text"
-            name="reg"
-            class="numberplate-input"
-            placeholder="ENTER REGISTRATION"
-          />
-          <button type="submit" class="numberplate-btn">Get Your FREE Valuation</button>
-        </form>
-      </div>
-    </header>
+      </header>
 
     <!-- CONDITIONS -->
     <section class="section section-conditions">
@@ -268,14 +270,20 @@
         </div>
       </div>
     </section>
+    </main>
+               <!-- Footer contact CTA -->
+          <div class="faq-contact" style="text-align:center;margin-top:20px;">
+            <p>Call or email us and we’ll arrange a free consultation.</p>
+            <p><a href="mailto:info@probateautos.co.uk">info@probateautos.co.uk</a> • <a href="tel:07802456321">07xxxxxxxxxx</a></p>
+            <p><a class="cta" href="valuation.html" style="background:var(--gold);color:var(--navy);padding:8px 12px;border-radius:8px;text-decoration:none;">Click here to get your FREE Valuation</a></p>
+          </div>
 
-    <!-- FOOTER -->
+        </div>
+      </section>
+    </main>
+
     <footer class="footer">
       <div class="container footer-inner">
-        <p>&copy; Hadleys Probate Autos. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Hadleys Probate Autos. All rights reserved.</p>
       </div>
     </footer>
-
-    <script src="js/main.js"></script>
-  </body>
-</html>
